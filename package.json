@@ -1,0 +1,28 @@
+{
+  "name": "es6_demo_gulp_160930",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cag2050/es6Demo_gulp_160930.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cag2050/es6Demo_gulp_160930/issues"
+  },
+  "homepage": "https://github.com/cag2050/es6Demo_gulp_160930#readme",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.16.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^2.0.0",
+    "webpack": "^1.13.2"
+  }
+}
