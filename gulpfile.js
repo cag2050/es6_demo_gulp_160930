@@ -3,7 +3,7 @@
  */
 var gulp = require("gulp"),
     babel = require("gulp-babel"),
-    babelCore = require("babel-core");
+    uglify = require("gulp-uglify");
 
 //开发版路径
 var src = {};
@@ -60,9 +60,8 @@ gulp.task('js', function () {
 gulp.task('watch', function () {
     gulp.watch(src.js, function (e) {
         var src_path = e.path,
-            build_path = src_path.replace(/\\src\\/g, "/build/"),
+            build_path = src_path.replace(/\\src\\/g, "\\build\\"),
             _build_path = build_path.substr(0, build_path.lastIndexOf("\\"));
-        //console.log(src_path.indexOf("\\page\\"));
         console.log('文件：' + src_path + "被修改");
         if (src_path.indexOf(".js") > -1) {
             console.log("js文件正在生成...");

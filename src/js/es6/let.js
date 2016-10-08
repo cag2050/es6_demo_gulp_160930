@@ -3,4 +3,4 @@
  */
 let obj = {};
 let aaa = [];
-let bbb;
+let bbb = 789;

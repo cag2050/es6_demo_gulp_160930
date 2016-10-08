@@ -5,4 +5,4 @@
  */
 var obj = {};
 var aaa = [];
-var bbb = void 0;
+var bbb = 789;
