@@ -2,19 +2,18 @@
  * Created by chenanguo on 2016/9/30.
  */
 var gulp = require("gulp"),
-    babel = require("babel"),
+    babel = require("gulp-babel"),
     babelCore = require("babel-core");
 
 //开发版路径
-var es6 = {};
-es6.root = "es6/";
-es6.js = es6.root + "*.js";
+var src = {};
+src.root = "src/";
+src.js = src.root + "js/**/*.js";
 
 //发布版路径
 var build = {};
 build.root = "build/";
-build.js = build.root;
-// build.js = build.root + "js/";
+build.js = build.root + "js/";
 
 //js压缩配置
 var uglify_config = {
@@ -50,7 +49,7 @@ Date.prototype.Format = function (fmt) {
 gulp.task('js', function () {
     console.log("脚本构建中...");
     // console.log(new Date().Format('yyyy-MM-dd hh:mm:ss'));
-    gulp.src(es6.js)
+    gulp.src(src.js)
         .pipe(babel({presets: ['es2015']}))
         // .pipe(uglify(uglify_config))
         .pipe(gulp.dest(build.js));
@@ -59,16 +58,17 @@ gulp.task('js', function () {
 
 // 监控文件，自动处理
 gulp.task('watch', function () {
-    gulp.watch(es6.js, function (e) {
+    gulp.watch(src.js, function (e) {
         var src_path = e.path,
-            build_path = src_path.replace(/\\es6\\/g, "/build/"),
+            build_path = src_path.replace(/\\src\\/g, "/build/"),
             _build_path = build_path.substr(0, build_path.lastIndexOf("\\"));
         //console.log(src_path.indexOf("\\page\\"));
         console.log('文件：' + src_path + "被修改");
         if (src_path.indexOf(".js") > -1) {
             console.log("js文件正在生成...");
             gulp.src(src_path)
-                .pipe(uglify(uglify_config))
+                .pipe(babel({presets: ['es2015']}))
+                // .pipe(uglify(uglify_config))
                 .pipe(gulp.dest(_build_path));
         }
         console.log("修改后的文件已经生成");
