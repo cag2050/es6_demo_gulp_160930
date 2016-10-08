@@ -76,4 +76,4 @@ gulp.task('watch', function () {
     console.log("开始监控js变化");
 });
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['js','watch']);
